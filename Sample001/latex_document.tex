@@ -1,0 +1,81 @@
+% A percent sign tells the LaTeX compiler to ignore whatever comes after it.
+% So you can use it to make comments in your .tex file.
+
+
+% We have to tell LaTeX what sort of document we're creating.
+% This will be an article, and we're using 11pt font (10 is too small, 12 is too big, imho).
+\documentclass[11pt]{amsart}
+
+% This next line forces the compiler to make pdf files. 
+\pdfoutput=1
+
+% Next we can include some packages with other features. 
+% I have added one that makes your document take up a full page.
+% The packages amsmath and amssymb give you a bunch of extra math symbols.
+\usepackage{fullpage}
+\usepackage{amsmath, amssymb}
+
+
+% The following code defines a ``problem'' environment that I use for homeworks and exams.
+% Check out the examples below.
+\newtheorem{problem}{Problem}
+
+
+% You can also define your own macros to save on typing time.
+% The following macro allows me to type $\ZZ$ instead of 
+% $\mathbb{Z}$ in order to produce the symbol for the integers.
+\newcommand{\ZZ}{\mathbb{Z}}
+
+
+
+%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%
+
+% These lines put a heading on the first page. 
+\title{Math 321 LaTeX Sample Document}
+\author{Jenny K. Student}
+
+% If you don't include a date between the braces, it will simply print today's date.
+\date{}
+
+%%%%%%%%%%%%%%
+
+% Now we have to tell the compiler that the content of the article is beginning. 
+% We also have to tell it to make a title and add our author info.
+\begin{document}
+\maketitle
+
+Here is some sample text to show you what LaTeX does. 
+
+To start a new paragraph, you need to leave a line of white space in your tex file.
+
+To include math, you have two options. The first is called ``in line,'' and you do this by putting your math between two dollar signs (\$). For example, Fermat's Little Theorem tells us that if $p$ is a prime and $a$ is an integer such that $p \nmid a$, then $a^{p-1} \equiv 1 \pmod{p}$. Note that the exponent on $a$ has to go in braces (in the tex file). 
+
+But if you really want an equation (or congruence) to stand out, then you ``display'' the math. It looks like this:
+\[
+	a^{p-1} \equiv 1 \pmod{p}.
+\]
+Nice, right?
+Finally, we can make things look really nice for homeworks as follows:
+
+\begin{problem}
+	Let $X$ and $Y$ be blah blah blah \ldots
+\end{problem}
+
+\begin{problem}
+	Let $X$ and $Y$ be as in the previous problem. What is $Z$?
+\end{problem}
+
+Notice that LaTeX automatically numbers the problems for us. 
+
+Here is an Integral
+$$\int_{a}^{b} x^2 dx$$
+
+Sum $\sum_{n=1}^{\infty} 2^{-n} = 1$ inside text
+
+Product $\prod_{i=a}^{b} f(i)$ inside text
+$$\prod_{i=a}^{b} f(i)$$
+
+
+% To tell the compiler when to stop working, you have to include the following line at the end.
+\end{document}
